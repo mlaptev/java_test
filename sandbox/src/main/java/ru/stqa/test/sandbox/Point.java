@@ -1,6 +1,6 @@
 package ru.stqa.test.sandbox;
 
-//public static double distance(x, y)
+
 
 
 public class Point {

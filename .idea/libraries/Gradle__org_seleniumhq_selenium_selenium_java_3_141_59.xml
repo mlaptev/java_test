@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: org.seleniumhq.selenium:selenium-java:3.141.59">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/addressbook-web-tests/Cannot resolve external dependency org.seleniumhq.selenium:selenium-java:3.141.59 because no repositories are defined." />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
