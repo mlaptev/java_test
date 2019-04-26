@@ -1,4 +1,4 @@
-package ru.stqa.test.sandbox;
+package ru.stqa;
 
 //import org.testing.annotations.Test;
 

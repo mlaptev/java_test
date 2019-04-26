@@ -1,8 +1,28 @@
 apply plugin: 'java'
 
-
+repositories {
+    mavenCentral()
+}
 
 dependencies {
-    compile("org.seleniumhq.selenium:selenium-java:3.141.59")
-    compile("com.katalon:com.katalon.platform.parent:1.0.10")
+    compile 'org.testng:testng:6.14.2'
+    compile 'org.seleniumhq.selenium:selenium-java:3.141.59'
+
+
+
+ //   compile 'org.testng:testng:6.14.2'
+ //   compile 'org.seleniumhq.selenium:selenium-java:3.141.59'
+ //   compile 'com.katalon:com.katalon.platform.parent:1.0.10'
+
+ //   compile 'ru.stqa.selenium:webdriver-java-archetype:1.0'
+  //  compile 'org.seleniumhq.selenium:htmlunit-driver:2.34.0'
+
+  compile 'org.seleniumhq.selenium.client-drivers:selenium-java-client-driver:1.0.2'
+
+   // implementation 'org.seleniumhq.webdriver:webdriver-firefox:0.9.7376'
+
+
+  //  implementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
+  //  implementation 'com.applitools:eyes-selenium-java4:4.0.2'
+
 }
