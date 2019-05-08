@@ -1,9 +1,9 @@
 package ru.stqa;
 
-public class Square {
+public class Square2 {
     public double l;
 
-    public Square(double l){
+    public Square2(double l){
        this.l = l;
     }
     public double area () {
