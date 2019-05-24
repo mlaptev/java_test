@@ -29,8 +29,6 @@ public class ContactCreationTests {
 
   @Test
   public void testContactCreation() {
-    //wd.get("http://localhost/addressbook/edit.php");
-    //wd.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Password:'])[1]/following::input[2]")).click();
     wd.findElement(By.linkText("add new")).click();
     wd.findElement(By.name("firstname")).click();
     wd.findElement(By.name("firstname")).clear();
@@ -113,19 +111,6 @@ public class ContactCreationTests {
   @AfterClass(alwaysRun = true)
   public void tearDown() throws Exception {
     wd.quit();
-   // String verificationErrorString = verificationErrors.toString();
-    //if (!"".equals(verificationErrorString)) {
-     // fail(verificationErrorString);
-   // }
-  //}
-
-  //private boolean isElementPresent(By by) {
-   // try {
-    //  wd.findElement(by);
-     // return true;
- //   } catch (NoSuchElementException e) {
-   //   return false;
-   // }
   }
 
   private boolean isAlertPresent() {
@@ -134,24 +119,6 @@ public class ContactCreationTests {
       return true;
     } catch (NoAlertPresentException e) {
       return false;
-    }
-
-
-
   }
-
- // private String closeAlertAndGetItsText() {
-   // try {
-    //  Alert alert = wd.switchTo().alert();
-    //  String alertText = alert.getText();
-    //  if (acceptNextAlert) {
-    //    alert.accept();
-     // } else {
-    //    alert.dismiss();
-     // }
-    //  return alertText;
-   // } finally {
-   //   acceptNextAlert = true;
-   // }
   }
-//}
+  }

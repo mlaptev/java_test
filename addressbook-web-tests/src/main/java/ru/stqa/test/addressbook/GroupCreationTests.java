@@ -14,18 +14,5 @@ public class GroupCreationTests extends TestBase {
     gotoGroupPage("group page");
   }
 
-  //private String closeAlertAndGetItsText() {
-   // try {
-     // Alert alert = wd.switchTo().alert();
-     // String alertText = alert.getText();
-     // if (acceptNextAlert) {
-      //  alert.accept();
-     // } else {
-     //   alert.dismiss();
-     // }
-     // return alertText;
-   // } finally {
-   //   acceptNextAlert = true;
-    //}
-  //}
+
 }
