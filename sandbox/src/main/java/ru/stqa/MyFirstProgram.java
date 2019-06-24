@@ -18,28 +18,16 @@ public class MyFirstProgram {
 		public static void hello (String somebody){
 			System.out.println("Hello, " + somebody + "!");
 			System.out.println("2 + 2 = " + (2 + 2));
-			double l = 8.0;
-			double s = l * l;
-			System.out.println("Площадь квадрата со стороной " + l + " = " + s);
 
 
 			Point p1 = new Point(2, 0);
 			Point p2 = new Point(8, 0);
-
 			double distance = p2.distance(p1);
-			System.out.println(distance);
 
-			Point p3 = new Point(3, 9);
-			Point p4 = new Point(1, 5);
+			System.out.println("Координаты точки p1 = " + p1.x + ", " + p1.y);
+			System.out.println("Координаты точки p2 = " + p2.x + ", " + p2.y);
+			System.out.println("Расстояние между двумя точками = " + p1.distance(p2));
 
-			double distance1 = p4.distance(p3);
-			System.out.println(distance1);
-
-			Point p5 = new Point(5, 9);
-			Point p6 = new Point(-2, 3);
-
-			double distance2 = distance(p5, p6);
-			System.out.println(distance2);
 		}
 
 		public static double distance (Point p1, Point p2){
