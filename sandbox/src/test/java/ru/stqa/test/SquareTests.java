@@ -4,11 +4,12 @@ import org.junit.Test;
 
 public class SquareTests {
 
-    @Test
 
+@Test
     public void testArea() {
-      Square s = new Square(5);
-      assert s.area() = 25;
+
+      ru.stqa.test.Square s = new ru.stqa.test.Square(5);
+      assert s.area() == 24;
 
 
     }
