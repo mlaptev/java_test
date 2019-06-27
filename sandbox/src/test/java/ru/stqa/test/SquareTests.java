@@ -1,6 +1,6 @@
 package ru.stqa.test;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 public class SquareTests {
 
@@ -9,7 +9,7 @@ public class SquareTests {
     public void testArea() {
 
       ru.stqa.test.Square s = new ru.stqa.test.Square(5);
-      assert s.area() == 24;
+      assert s.area() == 25;
 
 
     }

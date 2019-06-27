@@ -33,7 +33,7 @@ public class ContactDeletionTest {
   @Test
   public void testContactDeletion() throws Exception {
     wd.findElement(By.name("selected[]")).click();
-    wd.findElement(By.button("Delete")).click();
+    //wd.findElement(By.button("Delete")).click();
 
     //wd.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Password:'])[1]/following::input[2]")).click();
     //wd.findElement(By.id("31")).click();
