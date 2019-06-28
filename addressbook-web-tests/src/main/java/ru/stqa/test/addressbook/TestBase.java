@@ -11,17 +11,21 @@ import org.testng.annotations.BeforeMethod;
 
 import java.util.concurrent.TimeUnit;
 
-public class TestBase {
+public class TestBase extends ApplicationManager {
     //private StringBuffer verificationErrors = new StringBuffer();
     FirefoxDriver wd;
     //private WebDriver driver;
 
     @BeforeMethod
     public void setUp() throws Exception {
-      wd = new FirefoxDriver();
-      wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-      wd.get("http://localhost/addressbook/group.php");
-      login("admin", "secret");
+        init();
+    }
+
+    private void init() {
+        wd = new FirefoxDriver();
+        wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        wd.get("http://localhost/addressbook/group.php");
+        login("admin", "secret");
     }
 
     protected void submitGroupCreation(String submit) {
@@ -142,7 +146,11 @@ public class TestBase {
 
     @AfterClass(alwaysRun = true)
     public void tearDown() throws Exception {
-      wd.quit();
+        stop();
+    }
+
+    private void stop() {
+        wd.quit();
     }
 
     protected void deleteSelectedGroups() {
