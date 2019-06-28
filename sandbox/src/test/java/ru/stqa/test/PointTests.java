@@ -4,6 +4,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.Point;
 
+import java.awt.*;
+
 public class PointTests {
 
     @Test
@@ -22,7 +24,7 @@ public class PointTests {
         Point p3 = new Point(1, 0);
         Point p4 = new Point(8, 0);
         double distance = p4.distance(p3);
-        Assert.assertEquals(distance, 6.0, "Дистанция не корректная");
+        Assert.assertEquals(distance, 7.0, "Дистанция не корректная");
     }
 
 }
