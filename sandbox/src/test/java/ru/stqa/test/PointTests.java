@@ -4,7 +4,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.Point;
 
-import java.awt.*;
 
 public class PointTests {
 
