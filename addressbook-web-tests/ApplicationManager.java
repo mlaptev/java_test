@@ -1,6 +1,6 @@
-package ru.stqa.test.addressbook;
+//package ru.stqa.test.addressbook;
 
-import org.openqa.selenium.By;
+//import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -49,8 +49,8 @@ public class ApplicationManager {
       wd.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Password:'])[1]/following::input[2]")).click();
     }
 
-    public void submitContactCreation() {
-      wd.findElement(By.name("theform")).click();
+    public void submitContactCreation(String submit) {
+      wd.findElement(By.name(submit)).click();
     }
 
     public void fillContactForm(ContactData contactData) {

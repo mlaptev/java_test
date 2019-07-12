@@ -2,6 +2,7 @@ package ru.stqa;
 
 import ru.stqa.test.Square;
 
+
 public class MyFirstProgram {
 
 	public static void main(String[] args) {
