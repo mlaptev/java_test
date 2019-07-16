@@ -27,14 +27,6 @@ public class ApplicationManager {
         sessionHelper.login("admin", "secret");
     }
 
- //   private void login(String username, String password) {
-  //      wd.findElement(By.name("user")).clear();
-  //      wd.findElement(By.name("user")).sendKeys(username);
-  //      wd.findElement(By.name("pass")).clear();
-  //      wd.findElement(By.name("pass")).sendKeys(password);
-  //      wd.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Password:'])[1]/following::input[2]")).click();
-  //  }
-
     private boolean isElementPresent(By by) {
       try {
         wd.findElement(by);
@@ -49,8 +41,6 @@ public class ApplicationManager {
         String verificationErrorString = verificationErrors.toString();
         if (!"selected".equals(verificationErrorString)) {}
     }
-
-
 
     public GroupHelper getGroupHelper() {
         return groupHelper;
