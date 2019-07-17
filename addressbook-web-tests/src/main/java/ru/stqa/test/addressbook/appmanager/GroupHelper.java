@@ -31,11 +31,15 @@ public class GroupHelper extends HelperBase {
         click(By.name("delete"));
     }
 
- //   public void gotoGroupPage(String groups) {
- //       wd.findElement(By.linkText(groups)).click();
- //   }
-
     public void selectGroup() {
         click(By.name("selected[]"));
+    }
+
+    public void initGroupModification() {
+        click(By.name("edit"));
+    }
+
+    public void submitGroupModification() {
+        click(By.name("update"));
     }
 }

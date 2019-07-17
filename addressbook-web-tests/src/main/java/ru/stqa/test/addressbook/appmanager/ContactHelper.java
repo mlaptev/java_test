@@ -40,24 +40,18 @@ public class ContactHelper  extends HelperBase {
         click(By.name("mobile"));
         type(By.name("mobile"),contactData.getMobilephone());
         click(By.name("work"));
-        wd.findElement(By.name("work")).clear();
-        wd.findElement(By.name("work")).sendKeys(contactData.getWorkphone());
+        type(By.name("work"), contactData.getWorkphone());
         click(By.name("fax"));
         click(By.name("fax"));
-        wd.findElement(By.name("fax")).clear();
-        wd.findElement(By.name("fax")).sendKeys(contactData.getFaxphone());
+        type(By.name("fax"), contactData.getFaxphone());
         click(By.name("email"));
-        wd.findElement(By.name("email")).clear();
-        wd.findElement(By.name("email")).sendKeys(contactData.getEmailone());
+        type(By.name("email"), contactData.getEmailone());
         click(By.name("email2"));
-        wd.findElement(By.name("email2")).clear();
-        wd.findElement(By.name("email2")).sendKeys(contactData.getEmailtwo());
+        type(By.name("email2"),contactData.getEmailtwo());
         click(By.name("email3"));
-        wd.findElement(By.name("email3")).clear();
-        wd.findElement(By.name("email3")).sendKeys(contactData.getEmailthree());
+        type(By.name("email3"),contactData.getEmailthree());
         click(By.name("homepage"));
-        wd.findElement(By.name("homepage")).clear();
-        wd.findElement(By.name("homepage")).sendKeys(contactData.getHomapage());
+        type(By.name("homepage"),contactData.getHomapage());
         click(By.name("bday"));
         new Select(wd.findElement(By.name("bday"))).selectByVisibleText(contactData.getBirthdayday());
         click(By.name("bday"));
@@ -65,8 +59,7 @@ public class ContactHelper  extends HelperBase {
         new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText(contactData.getBirthdaymonth());
         click(By.name("bmonth"));
         click(By.name("byear"));
-        wd.findElement(By.name("byear")).clear();
-        wd.findElement(By.name("byear")).sendKeys(contactData.getBirthdayyear());
+        type(By.name("byear"),contactData.getBirthdayyear());
         click(By.name("aday"));
         new Select(wd.findElement(By.name("aday"))).selectByVisibleText(contactData.getAniday());
         click(By.name("aday"));
@@ -74,17 +67,13 @@ public class ContactHelper  extends HelperBase {
         new Select(wd.findElement(By.name("amonth"))).selectByVisibleText(contactData.getAnimonth());
         click(By.name("amonth"));
         click(By.name("ayear"));
-        wd.findElement(By.name("ayear")).clear();
-        wd.findElement(By.name("ayear")).sendKeys(contactData.getAniyear());
+        type(By.name("ayear"),contactData.getAniyear());
         click(By.name("address2"));
-        wd.findElement(By.name("address2")).clear();
-        wd.findElement(By.name("address2")).sendKeys(contactData.getSecondadresss());
+        type(By.name("address2"),contactData.getSecondadresss());
         click(By.name("phone2"));
-        wd.findElement(By.name("phone2")).clear();
-        wd.findElement(By.name("phone2")).sendKeys(contactData.getSecondhome());
+        type(By.name("phone2"),contactData.getSecondhome());
         click(By.name("notes"));
-        wd.findElement(By.name("notes")).clear();
-        wd.findElement(By.name("notes")).sendKeys(contactData.getNotes());
+        type(By.name("notes"),contactData.getNotes());
     }
 
     public void initContactCreation() {
@@ -127,5 +116,13 @@ public class ContactHelper  extends HelperBase {
       } finally {
         acceptNextAlert = true;
       }
+    }
+
+    public void initContactModification() {
+        click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='test3@t.ru'])[1]/following::img[2]"));
+    }
+
+    public void submitContactModification() {
+        click(By.name("update"));
     }
 }
