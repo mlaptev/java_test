@@ -4,7 +4,7 @@ package ru.stqa.test.addressbook.tests;
 import org.testng.annotations.*;
 
 
-public class GroupDeletionTest extends TestBase {
+public class GroupDeletionTests extends TestBase {
 
 
   @Test

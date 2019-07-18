@@ -3,14 +3,15 @@ package ru.stqa.test.addressbook.tests;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
 import ru.stqa.test.addressbook.appmanager.ApplicationManager;
+import sun.plugin2.util.BrowserType;
 
 import static org.testng.Assert.assertTrue;
 
 public class TestBase {
-  //  private final ApplicationManager applicationManager = new ApplicationManager();
 
 
-    public final ApplicationManager app = new ApplicationManager();
+
+    public final ApplicationManager app = new ApplicationManager(org.openqa.selenium.remote.BrowserType.CHROME);
 
     @BeforeMethod
     public void setUp() throws Exception {
