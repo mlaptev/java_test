@@ -1,6 +1,7 @@
 package ru.stqa.test.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -16,7 +17,19 @@ public class HelperBase {
     }
 
     protected void type(By locator, String text) {
-        wd.findElement(locator).clear();
-        wd.findElement(locator).sendKeys(text);
+        click(locator);
+        if (text != null) {
+            wd.findElement(locator).clear();
+            wd.findElement(locator).sendKeys(text);
+        }
+    }
+
+    protected boolean isElementPresent(By locator) {
+        try {
+            wd.findElement(locator);
+            return true;
+        } catch (NoSuchElementException ex) {
+            return false;
+        }
     }
 }

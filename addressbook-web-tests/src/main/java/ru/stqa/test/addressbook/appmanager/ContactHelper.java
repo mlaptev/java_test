@@ -1,17 +1,16 @@
 package ru.stqa.test.addressbook.appmanager;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.stqa.test.addressbook.model.ContactData;
 
 import static org.testng.Assert.assertTrue;
 
 public class ContactHelper  extends HelperBase {
     private boolean acceptNextAlert = true;
+
 
     public ContactHelper(WebDriver wd) {
         super(wd);
@@ -21,25 +20,25 @@ public class ContactHelper  extends HelperBase {
         click(By.name("submit"));
     }
 
-    public void fillContactForm(ContactData contactData) {
+    public void fillContactForm(ContactData contactData, boolean creation) {
         click(By.name("firstname"));
         type(By.name("firstname"), contactData.getFirstname());
         click(By.name("middlename"));
-        type(By.name("middlename"),contactData.getMiddlename());
+        type(By.name("middlename"), contactData.getMiddlename());
         click(By.name("lastname"));
         type(By.name("lastname"), contactData.getLastname());
         click(By.name("nickname"));
-        type(By.name("nickname"),contactData.getNickname());
+        type(By.name("nickname"), contactData.getNickname());
         click(By.name("title"));
-        type(By.name("title"),contactData.getTitle());
+        type(By.name("title"), contactData.getTitle());
         click(By.name("company"));
-        type(By.name("company"),contactData.getCompany());
+        type(By.name("company"), contactData.getCompany());
         click(By.name("address"));
-        type(By.name("address"),contactData.getAddress());
+        type(By.name("address"), contactData.getAddress());
         click(By.name("home"));
         type(By.name("home"), contactData.getHomephone());
         click(By.name("mobile"));
-        type(By.name("mobile"),contactData.getMobilephone());
+        type(By.name("mobile"), contactData.getMobilephone());
         click(By.name("work"));
         type(By.name("work"), contactData.getWorkphone());
         click(By.name("fax"));
@@ -48,11 +47,11 @@ public class ContactHelper  extends HelperBase {
         click(By.name("email"));
         type(By.name("email"), contactData.getEmailone());
         click(By.name("email2"));
-        type(By.name("email2"),contactData.getEmailtwo());
+        type(By.name("email2"), contactData.getEmailtwo());
         click(By.name("email3"));
-        type(By.name("email3"),contactData.getEmailthree());
+        type(By.name("email3"), contactData.getEmailthree());
         click(By.name("homepage"));
-        type(By.name("homepage"),contactData.getHomapage());
+        type(By.name("homepage"), contactData.getHomapage());
         click(By.name("bday"));
         new Select(wd.findElement(By.name("bday"))).selectByVisibleText(contactData.getBirthdayday());
         click(By.name("bday"));
@@ -60,7 +59,7 @@ public class ContactHelper  extends HelperBase {
         new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText(contactData.getBirthdaymonth());
         click(By.name("bmonth"));
         click(By.name("byear"));
-        type(By.name("byear"),contactData.getBirthdayyear());
+        type(By.name("byear"), contactData.getBirthdayyear());
         click(By.name("aday"));
         new Select(wd.findElement(By.name("aday"))).selectByVisibleText(contactData.getAniday());
         click(By.name("aday"));
@@ -68,7 +67,15 @@ public class ContactHelper  extends HelperBase {
         new Select(wd.findElement(By.name("amonth"))).selectByVisibleText(contactData.getAnimonth());
         click(By.name("amonth"));
         click(By.name("ayear"));
-        type(By.name("ayear"),contactData.getAniyear());
+        type(By.name("ayear"), contactData.getAniyear());
+
+        if (creation) {
+            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+        } else {
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
+        }
+
+
         click(By.name("address2"));
         type(By.name("address2"),contactData.getSecondadresss());
         click(By.name("phone2"));

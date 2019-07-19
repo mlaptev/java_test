@@ -22,11 +22,12 @@ public class ContactData {
     private final String aniday;
     private final String animonth;
     private final String aniyear;
+    private String group;
     private final String secondadresss;
     private final String secondhome;
     private final String notes;
 
-    public ContactData(String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String mobilephone, String homephone, String workphone, String faxphone, String emailone, String emailtwo, String emailthree, String homapage, String birthdayday, String birthdaymonth, String birthdayyear, String Aniday, String animonth, String aniyear, String secondadresss, String secondhome, String notes) {
+    public ContactData(String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String mobilephone, String homephone, String workphone, String faxphone, String emailone, String emailtwo, String emailthree, String homapage, String birthdayday, String birthdaymonth, String birthdayyear, String Aniday, String animonth, String aniyear, String group, String secondadresss, String secondhome, String notes) {
         this.firstname = firstname;
         this.middlename = middlename;
         this.lastname = lastname;
@@ -48,6 +49,7 @@ public class ContactData {
         aniday = Aniday;
         this.animonth = animonth;
         this.aniyear = aniyear;
+        this.group = group;
         this.secondadresss = secondadresss;
         this.secondhome = secondhome;
         this.notes = notes;
@@ -147,5 +149,9 @@ public class ContactData {
 
     public String getNotes() {
         return notes;
+    }
+
+    public String getGroup() {
+        return group;
     }
 }
