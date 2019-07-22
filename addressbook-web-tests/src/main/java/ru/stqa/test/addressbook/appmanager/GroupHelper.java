@@ -2,7 +2,6 @@ package ru.stqa.test.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.test.addressbook.model.GroupData;
 
 public class GroupHelper extends HelperBase {
@@ -42,5 +41,21 @@ public class GroupHelper extends HelperBase {
 
     public void submitGroupModification() {
         click(By.name("update"));
+    }
+
+    public void gotoGroupPage() {
+
+        click(By.linkText("groups"));
+    }
+    public void createGroup(GroupData group) {
+        initGroupCreation("new");
+        initGroupCreation("group_name");
+        fillGroupForm(group);
+        submitGroupCreation("submit");
+        gotoGroupPage();
+    }
+
+    public boolean isThereAGroup() {
+        return isElementPresent(By.name("selected[]"));
     }
 }

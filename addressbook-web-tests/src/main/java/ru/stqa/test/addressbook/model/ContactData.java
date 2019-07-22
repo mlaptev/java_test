@@ -22,7 +22,7 @@ public class ContactData {
     private final String aniday;
     private final String animonth;
     private final String aniyear;
-    private String group;
+   // private String group;
     private final String secondadresss;
     private final String secondhome;
     private final String notes;
@@ -49,7 +49,7 @@ public class ContactData {
         aniday = Aniday;
         this.animonth = animonth;
         this.aniyear = aniyear;
-        this.group = group;
+        //this.group = group;
         this.secondadresss = secondadresss;
         this.secondhome = secondhome;
         this.notes = notes;
@@ -151,7 +151,7 @@ public class ContactData {
         return notes;
     }
 
-    public String getGroup() {
-        return group;
-    }
+   // public String getGroup() {
+    //    return group;
+   // }
 }

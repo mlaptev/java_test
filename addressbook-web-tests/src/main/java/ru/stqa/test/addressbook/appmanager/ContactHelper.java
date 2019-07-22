@@ -1,11 +1,8 @@
 package ru.stqa.test.addressbook.appmanager;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 import ru.stqa.test.addressbook.model.ContactData;
-
 import static org.testng.Assert.assertTrue;
 
 public class ContactHelper  extends HelperBase {
@@ -68,14 +65,6 @@ public class ContactHelper  extends HelperBase {
         click(By.name("amonth"));
         click(By.name("ayear"));
         type(By.name("ayear"), contactData.getAniyear());
-
-        if (creation) {
-            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
-        } else {
-            Assert.assertFalse(isElementPresent(By.name("new_group")));
-        }
-
-
         click(By.name("address2"));
         type(By.name("address2"),contactData.getSecondadresss());
         click(By.name("phone2"));
@@ -132,5 +121,19 @@ public class ContactHelper  extends HelperBase {
 
     public void submitContactModification() {
         click(By.name("update"));
+    }
+
+    public boolean isThereAContact() {
+
+       return isElementPresent(By.name("selected[]"));
+    }
+
+    public void createContact(ContactData contact) {
+        initContactCreation();
+        fillContactForm(new ContactData("first name", "middle name", "last name", "nickname",
+                "title", "company", "addressss", "123456789", "12345678", "1234567890", "12345678901",
+                "test@t.ru", "test2@t.ru", "test3@t.ru", "homapage", "6", "March",
+                "1985", "6", "May", "1234", "ttt1", "adressshome", "homae", "noties"), true);
+        submitContactCreation();
     }
 }
