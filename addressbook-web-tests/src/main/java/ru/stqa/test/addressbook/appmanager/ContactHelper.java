@@ -3,6 +3,11 @@ package ru.stqa.test.addressbook.appmanager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 import ru.stqa.test.addressbook.model.ContactData;
+import ru.stqa.test.addressbook.model.GroupData;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.testng.Assert.assertTrue;
 
 public class ContactHelper  extends HelperBase {
@@ -66,11 +71,11 @@ public class ContactHelper  extends HelperBase {
         click(By.name("ayear"));
         type(By.name("ayear"), contactData.getAniyear());
         click(By.name("address2"));
-        type(By.name("address2"),contactData.getSecondadresss());
+        type(By.name("address2"), contactData.getSecondadresss());
         click(By.name("phone2"));
-        type(By.name("phone2"),contactData.getSecondhome());
+        type(By.name("phone2"), contactData.getSecondhome());
         click(By.name("notes"));
-        type(By.name("notes"),contactData.getNotes());
+        type(By.name("notes"), contactData.getNotes());
     }
 
     public void initContactCreation() {
@@ -101,18 +106,18 @@ public class ContactHelper  extends HelperBase {
     }
 
     private String closeAlertAndGetItsText() {
-      try {
-        Alert alert = wd.switchTo().alert();
-        String alertText = alert.getText();
-        if (acceptNextAlert) {
-          alert.accept();
-        } else {
-          alert.dismiss();
+        try {
+            Alert alert = wd.switchTo().alert();
+            String alertText = alert.getText();
+            if (acceptNextAlert) {
+                alert.accept();
+            } else {
+                alert.dismiss();
+            }
+            return alertText;
+        } finally {
+            acceptNextAlert = true;
         }
-        return alertText;
-      } finally {
-        acceptNextAlert = true;
-      }
     }
 
     public void initContactModification() {
@@ -125,7 +130,7 @@ public class ContactHelper  extends HelperBase {
 
     public boolean isThereAContact() {
 
-       return isElementPresent(By.name("selected[]"));
+        return isElementPresent(By.name("selected[]"));
     }
 
     public void createContact(ContactData contact) {
@@ -136,4 +141,20 @@ public class ContactHelper  extends HelperBase {
                 "1985", "6", "May", "1234", "ttt1", "adressshome", "homae", "noties"), true);
         submitContactCreation();
     }
+
+    public List<ContactData> getContactList() {
+
+        List<ContactData> contacts = new ArrayList<ContactData>();
+        List<WebElement> elements = wd.findElements(By.cssSelector("td.center"));
+        for (WebElement element : elements) {
+            String name = element.getText();
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+            ContactData contact = new ContactData(name, null, null, null, null, null, null, null, null,
+                    null, null, null, null, null, null, null, null, null, null
+                    , null, null, null, null, null, null);
+            contacts.add(contact);
+        }
+        return contacts;
+    }
 }
+
