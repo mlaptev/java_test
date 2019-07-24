@@ -1,7 +1,11 @@
 package ru.stqa.test.addressbook.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.*;
 import ru.stqa.test.addressbook.model.ContactData;
+import ru.stqa.test.addressbook.model.GroupData;
+
+import java.util.List;
 
 
 public class ContactDeletionTest  extends TestBase {
@@ -11,13 +15,20 @@ public class ContactDeletionTest  extends TestBase {
       app.getNavigationHelper().gotoContactPage();
       if (! app.getContactHelper().isThereAContact()) {
             app.getContactHelper().createContact(new ContactData ("first name", "middle name", "last name", "nickname",
-                    "title", "company", "addressss", "123456789", "12345678", "1234567890", "12345678901",
-                    "test@t.ru", "test2@t.ru", "test3@t.ru", "homapage", "6", "March",
-                    "1985", "6", "May", "1234", "ttt1", "adressshome", "homae", "noties"));
+                    "title", "company", "addressss" ));
         }
-      app.getContactHelper().selectContact();
+      List<ContactData> before = app.getContactHelper().getContactList();
+      app.getContactHelper().selectContact(before.size());
       app.getContactHelper().deleteContact();
       app.getContactHelper().gotoContactPage();
+
+        List<ContactData> after = app.getContactHelper().getContactList();
+        Assert.assertEquals(after.size(), before.size() - 1);
+
+        before.remove(before.size() - 1);
+        Assert.assertEquals(before, after);
+
+
   }
 
 
