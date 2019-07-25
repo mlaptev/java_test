@@ -82,7 +82,7 @@ public class ContactHelper  extends HelperBase {
         click(By.linkText("add new"));
     }
 
-    public void gotoContactPage() {
+    public void ContactPage() {
         wd.findElement(By.linkText("home")).click();
     }
 
@@ -105,6 +105,19 @@ public class ContactHelper  extends HelperBase {
         } catch (NoAlertPresentException e) {
             return false;
         }
+    }
+
+    public void modify(int index) {
+        selectContact(index);
+        initContactModification();
+        submitContactModification();
+        ContactPage();
+    }
+
+    public void delete(int index) {
+        selectContact(index);
+        deleteContact();
+        ContactPage();
     }
 
     private String closeAlertAndGetItsText() {
@@ -135,15 +148,17 @@ public class ContactHelper  extends HelperBase {
         return isElementPresent(By.name("selected[]"));
     }
 
-    public void createContact(ContactData contact) {
+    public void create(ContactData contact) {
         initContactCreation();
         fillContactForm(new ContactData("first name", "middle name", "last name", "nickname",
                 "title", "company", "addressss"), true);
         submitContactCreation();
-    }
+            }
 
-    public List<ContactData> getContactList() {
 
+
+
+    public List<ContactData> clist() {
         List<ContactData> contacts = new ArrayList<ContactData>();
         List<WebElement> elements = wd.findElements(By.cssSelector("tr.odd"));
         for (WebElement element : elements) {
