@@ -6,6 +6,7 @@ import ru.stqa.test.addressbook.model.ContactData;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 
 
 public class ContactCreationTests extends TestBase{
@@ -13,21 +14,19 @@ public class ContactCreationTests extends TestBase{
 
   @Test
   public void testContactCreation() {
-    List<ContactData> before = app.contact().clist();
-    ContactData contact = new ContactData("first name", "middle name", "last name", "nickname",
-            "title", "company", "addressss");
-    app.contact().create(contact);
+    Set<ContactData> before = app.contact().clist();
+    ContactData contact = new ContactData().withFirstname("first name").withLastname("last name"); //"middle name", "last name", "nickname",
+          //  "title", "company", "addressss");
     app.goTo().contactPage();
-    List<ContactData> after = app.contact().clist();
+    app.contact().initContactCreation();
+    app.contact().fillContactForm(contact, true);
+    app.contact().submitContactCreation();
+    app.goTo().contactPage();
+    Set<ContactData> after = app.contact().clist();
     Assert.assertEquals(after.size(), before.size() + 1);
 
-
-
-//    contact.setId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());
+    contact.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt());
     before.add(contact);
-    Comparator<? super ContactData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
- //   before.sort(byId);
- //   after.sort(byId);
     Assert.assertEquals(before, after);
   }
 

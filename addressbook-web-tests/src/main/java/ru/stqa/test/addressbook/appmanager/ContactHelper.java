@@ -6,7 +6,9 @@ import ru.stqa.test.addressbook.model.ContactData;
 import ru.stqa.test.addressbook.model.GroupData;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static org.testng.Assert.assertTrue;
 
@@ -96,7 +98,9 @@ public class ContactHelper  extends HelperBase {
         wd.findElements(By.name("selected[]")).get(index).click();
     }
 
-    // public void selectGroup(int index) { wd.findElements(By.name("selected[]")).get(index).click();  }
+    public void selectContactById(int id) {
+        wd.findElement(By.name("input[value='" + id + "']")).click();
+    }
 
     private boolean isAlertPresent() {
         try {
@@ -107,15 +111,15 @@ public class ContactHelper  extends HelperBase {
         }
     }
 
-    public void modify(int index) {
-        selectContact(index);
+    public void modify(ContactData contact) {
+        selectContact(contact.getId());
         initContactModification();
         submitContactModification();
         ContactPage();
     }
 
-    public void delete(int index) {
-        selectContact(index);
+    public void delete(ContactData contact) {
+        selectContactById(contact.getId());
         deleteContact();
         ContactPage();
     }
@@ -148,26 +152,32 @@ public class ContactHelper  extends HelperBase {
         return isElementPresent(By.name("selected[]"));
     }
 
-    public void create(ContactData contact) {
-        initContactCreation();
-        fillContactForm(new ContactData("first name", "middle name", "last name", "nickname",
-                "title", "company", "addressss"), true);
-        submitContactCreation();
-            }
+  //  public void create(ContactData contact) {
+  //      initContactCreation();
+   ///     fillContactForm(new ContactData("first name", "middle name", "last name", "nickname",
+  //              "title", "company", "addressss"), true);
+   //     submitContactCreation();
+   //         }
 
 
 
 
-    public List<ContactData> clist() {
-        List<ContactData> contacts = new ArrayList<ContactData>();
+    public Set<ContactData> clist() {
+        Set<ContactData> contacts = new HashSet<ContactData>();
         List<WebElement> elements = wd.findElements(By.cssSelector("tr.odd"));
         for (WebElement element : elements) {
             String name = element.getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            ContactData contact = new ContactData("first name", null, "last name", null, null, null, null);
+            ContactData contact = new ContactData().withId(id).withFirstname("first name").withLastname("last name");
             contacts.add(contact);
         }
         return contacts;
     }
+
+    public void delete(GroupData deletedGroup) {
+
+    }
+
+
 }
 
