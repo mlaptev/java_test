@@ -1,14 +1,11 @@
 package ru.stqa.test.addressbook.appmanager;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.Select;
 import ru.stqa.test.addressbook.model.ContactData;
+import ru.stqa.test.addressbook.model.Contacts;
 import ru.stqa.test.addressbook.model.GroupData;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import static org.testng.Assert.assertTrue;
 
@@ -99,7 +96,7 @@ public class ContactHelper  extends HelperBase {
     }
 
     public void selectContactById(int id) {
-        wd.findElement(By.name("input[value='" + id + "']")).click();
+        wd.findElement(By.cssSelector("input[id='" + id + "']")).click();
     }
 
     private boolean isAlertPresent() {
@@ -162,8 +159,8 @@ public class ContactHelper  extends HelperBase {
 
 
 
-    public Set<ContactData> clist() {
-        Set<ContactData> contacts = new HashSet<ContactData>();
+    public Contacts clist() {
+        Contacts contacts = new Contacts();
         List<WebElement> elements = wd.findElements(By.cssSelector("tr.odd"));
         for (WebElement element : elements) {
             String name = element.getText();

@@ -7,7 +7,6 @@ import java.util.Set;
 
 public class Contacts extends ForwardingSet<ContactData> {
 
-
         private Set<ContactData> delegate;
 
         public Contacts(ru.stqa.test.addressbook.model.Contacts contacts) {
