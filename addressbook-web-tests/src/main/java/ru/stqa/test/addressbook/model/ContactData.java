@@ -12,9 +12,9 @@ public class ContactData {
     private  String company;
 
     private  String address;
-//    private final String mobilephone;
-//    private final String homephone;
-//    private final String workphone;
+    private  String mobilephone;
+    private  String homephone;
+    private  String workphone;
 //    private final String faxphone;
 //    private final String emailone;
 //    private final String emailtwo;
@@ -70,19 +70,30 @@ public class ContactData {
         return this;
     }
 
+    public String getFirstname() { return firstname; }
+
     public ContactData withFirstname(String firstname) {
         this.firstname = firstname;
         return this;
     }
+
+    public String getMiddlename() { return middlename; }
+
 
     public ContactData withMiddlename(String middlename) {
         this.middlename = middlename;
         return this;
     }
 
+    public String getLastname() { return lastname; }
+
     public ContactData withLastname(String lastname) {
         this.lastname = lastname;
         return this;
+    }
+
+    public String getNickname() {
+        return nickname;
     }
 
     public ContactData withNickname(String nickname) {
@@ -90,9 +101,17 @@ public class ContactData {
         return this;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
     public ContactData withTitle(String title) {
         this.title = title;
         return this;
+    }
+
+    public String getCompany() {
+        return company;
     }
 
     public ContactData withCompany(String company) {
@@ -100,51 +119,34 @@ public class ContactData {
         return this;
     }
 
+    public String getAddress() { return address;  }
+
     public ContactData withAddress(String address) {
         this.address = address;
         return this;
     }
 
+    public String getMobilephone() { return mobilephone; }
 
-    public String getFirstname() {
-        return firstname;
+    public ContactData MobilePhone(String mobilephone) {
+        this.mobilephone = mobilephone;
+        return this;
     }
 
-    public String getMiddlename() {
-        return middlename;
+    public String getHomephone() { return homephone; }
+
+    public ContactData HomePhone(String homephone) {
+        this.homephone = homephone;
+        return this;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getWorkphone() { return workphone; }
+
+    public ContactData WorkPhone(String workphone) {
+        this.workphone = workphone;
+        return this;
     }
 
-    public String getNickname() {
-        return nickname;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getCompany() {
-        return company;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-//    public String getMobilephone() {
-//        return mobilephone;
-//    }
-
-//    public String getHomephone() {
-//        return homephone;
-//    }
-
-//    public String getWorkphone() {
-//        return workphone;
-//    }
 //
 //    public String getFaxphone() {
 //        return faxphone;
@@ -212,9 +214,11 @@ public class ContactData {
         if (o == null || getClass() != o.getClass()) return false;
 
         ContactData that = (ContactData) o;
-
+        return id == that.id &&
+                Objects.equals(firstname, that.firstname) &&
+                Objects.equals(lastname, that.lastname);
  //       if (id != that.id) return false;
-        return lastname != null ? lastname.equals(that.lastname) : that.lastname == null;
+ //       return lastname != null ? lastname.equals(that.lastname) : that.lastname == null;
     }
 
     @Override
