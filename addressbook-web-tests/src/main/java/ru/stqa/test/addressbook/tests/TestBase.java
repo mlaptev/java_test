@@ -10,7 +10,7 @@ public class TestBase {
 
 
 
-    public static final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
+    public static final ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
 
 //    @BeforeMethod
     @BeforeSuite

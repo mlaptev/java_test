@@ -7,31 +7,31 @@ import java.util.Set;
 
 public class Contacts extends ForwardingSet<ContactData> {
 
-        private Set<ContactData> delegate;
+        private final Set<ContactData> delegate;
 
-        public Contacts(ru.stqa.test.addressbook.model.Contacts contacts) {
+        public Contacts(Contacts contacts) {
             this.delegate = new HashSet<ContactData>(contacts.delegate);
 
         }
 
-        public Contacts() {
+        public Contacts()  {
             this.delegate = new HashSet<ContactData>();
         }
 
         @Override
         protected Set<ContactData> delegate() {
-            return null;
+            return delegate;
         }
 
-        public ru.stqa.test.addressbook.model.Contacts withAdded (ContactData contact) {
-            ru.stqa.test.addressbook.model.Contacts contacts = new ru.stqa.test.addressbook.model.Contacts(this);
+        public Contacts withAdded (ContactData contact) {
+            Contacts contacts = new Contacts(this);
             contacts.add(contact);
             return contacts;
 
         }
 
-        public ru.stqa.test.addressbook.model.Contacts without (ContactData contact) {
-            ru.stqa.test.addressbook.model.Contacts contacts = new ru.stqa.test.addressbook.model.Contacts(this);
+        public Contacts without (ContactData contact) {
+            Contacts contacts = new Contacts(this);
             contacts.add(contact);
             return contacts;
 

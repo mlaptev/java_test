@@ -15,51 +15,19 @@ public class ContactData {
     private  String mobilephone;
     private  String homephone;
     private  String workphone;
-//    private final String faxphone;
-//    private final String emailone;
-//    private final String emailtwo;
-//    private final String emailthree;
-//    private final String homapage;
-//    private final String birthdayday;
-//    private final String birthdaymonth;
-//    private final String birthdayyear;
-//    private final String aniday;
-//    private final String animonth;
-//    private final String aniyear;
-//    private String group;
-//    private final String secondadresss;
-//    private final String secondhome;
-//    private final String notes;
+    private  String allPhones;
+    private  String emailone;
+    private  String emailtwo;
+    private  String emailthree;
 
-//    public ContactData(String firstname, String middlename, String lastname, String nickname, String title, String company, String address) {
-//        this.id = Integer.MAX_VALUE;
+    public String getAllPhones() {
+        return allPhones;
+    }
 
-//        this.firstname = firstname;
- //       this.middlename = middlename;
- //       this.lastname = lastname;
- //       this.nickname = nickname;
- //       this.title = title;
-//        this.company = company;
- //       this.address = address;
-//        this.mobilephone = mobilephone;
-//        this.homephone = homephone;
-//        this.workphone = workphone;
-//        this.faxphone = faxphone;
-//        this.emailone = emailone;
-//        this.emailtwo = emailtwo;
-//        this.emailthree = emailthree;
-//        this.homapage = homapage;
-//        this.birthdayday = birthdayday;
-//        this.birthdaymonth = birthdaymonth;
-//        this.birthdayyear = birthdayyear;
-//        aniday = Aniday;
-//        this.animonth = animonth;
-//        this.aniyear = aniyear;
-//        this.group = group;
-//        this.secondadresss = secondadresss;
-//        this.secondhome = secondhome;
-//        this.notes = notes;
- //   }
+    public ContactData withAllPhones(String allPhones) {
+        this.allPhones = allPhones;
+        return this;
+    }
 
     public int getId() {
         return id;
@@ -70,33 +38,33 @@ public class ContactData {
         return this;
     }
 
-    public String getFirstname() { return firstname; }
+    public String getFirstName() { return firstname; }
 
-    public ContactData withFirstname(String firstname) {
+    public ContactData withFirstName(String firstname) {
         this.firstname = firstname;
         return this;
     }
 
-    public String getMiddlename() { return middlename; }
+    public String getMiddleName() { return middlename; }
 
 
-    public ContactData withMiddlename(String middlename) {
+    public ContactData withMiddleName(String middlename) {
         this.middlename = middlename;
         return this;
     }
 
-    public String getLastname() { return lastname; }
+    public String getLastName() { return lastname; }
 
-    public ContactData withLastname(String lastname) {
+    public ContactData withLastName(String lastname) {
         this.lastname = lastname;
         return this;
     }
 
-    public String getNickname() {
+    public String getNickName() {
         return nickname;
     }
 
-    public ContactData withNickname(String nickname) {
+    public ContactData withNickName(String nickname) {
         this.nickname = nickname;
         return this;
     }
@@ -126,83 +94,54 @@ public class ContactData {
         return this;
     }
 
-    public String getMobilephone() { return mobilephone; }
+    public String getMobilePhone() { return mobilephone; }
 
-    public ContactData MobilePhone(String mobilephone) {
+    public ContactData withMobilePhone(String mobilephone) {
         this.mobilephone = mobilephone;
         return this;
     }
 
-    public String getHomephone() { return homephone; }
+    public String getHomePhone() { return homephone; }
 
-    public ContactData HomePhone(String homephone) {
+    public ContactData withHomePhone(String homephone) {
         this.homephone = homephone;
         return this;
     }
 
-    public String getWorkphone() { return workphone; }
+    public String getWorkPhone() { return workphone; }
 
-    public ContactData WorkPhone(String workphone) {
+    public ContactData withWorkPhone(String workphone) {
         this.workphone = workphone;
         return this;
     }
 
-//
-//    public String getFaxphone() {
-//        return faxphone;
-//    }
-//
-//    public String getEmailone() {
-//        return emailone;
-//    }
+    public String getEmailOne() {
+        return emailone;
+    }
+    public ContactData withEmailOne(String emailone) {
+        this.emailone = emailone;
+        return this;
+    }
 
-//    public String getEmailtwo() {
-//        return emailtwo;
-//    }
 
-//    public String getEmailthree() {
-//        return emailthree;
-//    }
-//
-//    public String getHomapage() {
-//        return homapage;
-//    }
+    public String getEmailTwo() {
+        return emailtwo;
+    }
+    public ContactData withEmailTwo(String emailtwo) {
+        this.emailtwo = emailtwo;
+        return this;
+    }
 
-//    public String getBirthdayday() {
-//        return birthdayday;
-//    }
-//
-//    public String getBirthdaymonth() {
-//        return birthdaymonth;
-//    }
 
-//    public String getBirthdayyear() {
-//        return birthdayyear;
-//    }
+    public String getEmailThree() {
+        return emailthree;
+    }
 
-//    public String getAniday() {
-//        return aniday;
-//    }
+    public ContactData withEmailTree(String emailthree) {
+        this.emailthree = emailthree;
+        return this;
+    }
 
-//    public String getAnimonth() {
-//        return animonth;
-//    }
-
-//    public String getAniyear() {
-//        return aniyear;
-//    }
-
-//    public String getSecondadresss() {
-//        return secondadresss;
-//    }
-
-//    public String getSecondhome() {
-//        return secondhome;
-//    }
-
-//    public String getNotes() {
-//        return notes;
-//    }
 
    // public String getGroup() {
     //    return group;
