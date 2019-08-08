@@ -8,8 +8,8 @@ dependencies {
     //compile 'org.testng:testng:6.14.2'
     compile 'org.testng:testng:7.0.0-beta7'
     //compile 'org.seleniumhq.selenium:selenium-java:3.141.59'
-    compile 'org.seleniumhq.selenium:selenium-java:4.0.0-alpha-2'
-
+   // compile 'org.seleniumhq.selenium:selenium-java:4.0.0-alpha-2'
+    compile 'org.seleniumhq.selenium:selenium-java:3.141.59'
     compile 'org.seleniumhq.selenium.client-drivers:selenium-java-client-driver:1.0.2'
     compile("org.seleniumhq.selenium:selenium-java:4.0.0-alpha-1")
     compile "org.seleniumhq.selenium:selenium-firefox-driver:4.0.0-alpha-1"

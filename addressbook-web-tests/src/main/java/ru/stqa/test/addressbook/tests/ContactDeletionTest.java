@@ -23,9 +23,9 @@ public class ContactDeletionTest  extends TestBase {
                     .withCompany("company")
                     .withAddress("address")
                     .withHomePhone("65434")
-                    .withEmailOne("email1@mail")
-                    .withEmailTwo("email2@mail")
-                    .withEmailTree("email3@mail"));
+                    .withEmail("email")
+                    .withEmail2("email2@mail")
+                    .withEmail3("email3@mail"));
 
 
         }

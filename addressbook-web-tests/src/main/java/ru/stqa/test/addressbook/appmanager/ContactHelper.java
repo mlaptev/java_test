@@ -3,7 +3,6 @@ package ru.stqa.test.addressbook.appmanager;
 import org.openqa.selenium.*;
 import ru.stqa.test.addressbook.model.ContactData;
 import ru.stqa.test.addressbook.model.Contacts;
-import ru.stqa.test.addressbook.model.GroupData;
 
 import java.util.List;
 
@@ -22,35 +21,21 @@ public class ContactHelper  extends HelperBase {
     }
 
     public void fillContactForm(ContactData contactData) {
-        click(By.name("firstname"));
+
         type(By.name("firstname"), contactData.getFirstName());
-        click(By.name("middlename"));
         type(By.name("middlename"), contactData.getMiddleName());
-        click(By.name("lastname"));
         type(By.name("lastname"), contactData.getLastName());
-        click(By.name("nickname"));
         type(By.name("nickname"), contactData.getNickName());
-        click(By.name("title"));
         type(By.name("title"), contactData.getTitle());
-        click(By.name("company"));
         type(By.name("company"), contactData.getCompany());
-        click(By.name("address"));
         type(By.name("address"), contactData.getAddress());
-        click(By.name("home"));
         type(By.name("home"), contactData.getHomePhone());
-        click(By.name("mobile"));
         type(By.name("mobile"), contactData.getMobilePhone());
-        click(By.name("work"));
         type(By.name("work"), contactData.getWorkPhone());
-//        click(By.name("fax"));
-//        click(By.name("fax"));
-//        type(By.name("fax"), contactData.getFaxphone());
-        click(By.name("email"));
-        type(By.name("email"), contactData.getEmailOne());
-        click(By.name("email2"));
-        type(By.name("email2"), contactData.getEmailTwo());
-        click(By.name("email3"));
-        type(By.name("email3"), contactData.getEmailThree());
+//      type(By.name("fax"), contactData.getFaxphone());
+        type(By.name("email"), contactData.getEmail1());
+        type(By.name("email2"), contactData.getEmail2());
+        type(By.name("email3"), contactData.getEmail3());
 //        click(By.name("homepage"));
 //        type(By.name("homepage"), contactData.getHomapage());
 //        click(By.name("bday"));
@@ -124,20 +109,25 @@ public class ContactHelper  extends HelperBase {
         initContactCreation();
         fillContactForm(contact);
         submitContactCreation();
+        contactCache = null;
         ContactPage();
     }
 
 
     public void modify(ContactData contact) {
+        //ContactPage();
         selectContactById(contact.getId());
         initContactModification();
+        fillContactForm(contact);
         submitContactModification();
+        contactCache = null;
         ContactPage();
     }
 
     public void delete(ContactData contact) {
         selectContactById(contact.getId());
         deleteContact();
+        contactCache = null;
         ContactPage();
     }
 
@@ -161,7 +151,7 @@ public class ContactHelper  extends HelperBase {
     }
 
 
-    public void initContactModificationById(int id) {
+    private void initContactModificationById(int id) {
         WebElement checkbox = wd.findElement(By.cssSelector(String.format("input[value'%s']", id)));
         WebElement row = checkbox.findElement(By.xpath("./../.."));
         List<WebElement> cells = row.findElements(By.tagName("td"));
@@ -201,20 +191,27 @@ public class ContactHelper  extends HelperBase {
         List<WebElement> rows = wd.findElements(By.name("entry"));
         for (WebElement row : rows) {
             List<WebElement> cells = row.findElements(By.tagName("td"));
-            int id = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("id"));
+            int id = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("value"));
             String lastName = cells.get(1).getText();
             String firstName = cells.get(2).getText();
+            String address = cells.get(3).getText();
+            String allEmails = cells.get(4).getText();
             String allphones = cells.get(5).getText();
             System.out.println(id);
             System.out.println(firstName);
             System.out.println(lastName);
-            contactCache.add(new ContactData().withId(id).withFirstName(firstName).withLastName(lastName).withAllPhones(allphones));
+            System.out.println(address);
+            System.out.println(allphones);
+            System.out.println(allEmails);
+            contactCache.add(new ContactData()
+                    .withId(id)
+                    .withFirstName(firstName)
+                    .withLastName(lastName)
+                    .withAddress(address)
+                    .withAllPhones(allphones)
+                    .withAllEmails(allEmails));
         }
         return contactCache;
-    }
-
-    public void delete(GroupData deletedGroup) {
-
     }
 
 
@@ -225,8 +222,23 @@ public class ContactHelper  extends HelperBase {
         String home = wd.findElement(By.name("home")).getAttribute("value");
         String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
         String work = wd.findElement(By.name("work")).getAttribute("value");
+        String address = wd.findElement(By.name("address")).getAttribute("value");
+        String email1 = wd.findElement(By.name("email")).getAttribute("value");
+        String email2 = wd.findElement(By.name("email2")).getAttribute("value");
+        String email3 = wd.findElement(By.name("email3")).getAttribute("value");
+
         wd.navigate().back();
-        return new ContactData().withId(contact.getId()).withFirstName(firstname).withLastName(lasttname).withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work);
+        return new ContactData()
+                .withId(contact.getId())
+                .withFirstName(firstname)
+                .withLastName(lasttname)
+                .withHomePhone(home)
+                .withMobilePhone(mobile)
+                .withWorkPhone(work)
+                .withAddress(address)
+                .withEmail1(email1)
+                .withEmail2(email2)
+                .withEmail3(email3);
 
     }
 }
