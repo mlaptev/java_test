@@ -19,7 +19,6 @@ public class GroupDeletionTests extends TestBase {
       app.group().create(new GroupData().withName("test1"));
     }
   }
-  private Groups groupCache = null;
 
 
   @Test
