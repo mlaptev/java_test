@@ -15,10 +15,7 @@ dependencies {
     compile "org.seleniumhq.selenium:selenium-firefox-driver:4.0.0-alpha-1"
     compile 'org.hamcrest:java-hamcrest:2.0.0.0'
     compile 'org.teiid.connectors:google:12.2.1'
-   // implementation 'org.seleniumhq.webdriver:webdriver-firefox:0.9.7376'
+    compile("com.beust:jcommander:1.72")
 
-
-  //  implementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
-  //  implementation 'com.applitools:eyes-selenium-java4:4.0.2'
 
 }
