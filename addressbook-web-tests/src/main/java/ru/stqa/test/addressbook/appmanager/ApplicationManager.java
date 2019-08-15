@@ -50,7 +50,7 @@ public class ApplicationManager {
       }
     }
 
-    public void stop() {
+  public void stop() {
         wd.quit();
         String verificationErrorString = verificationErrors.toString();
         if (!"selected".equals(verificationErrorString)) {}

@@ -198,12 +198,7 @@ public class ContactHelper  extends HelperBase {
             String address = cells.get(3).getText();
             String allEmails = cells.get(4).getText();
             String allphones = cells.get(5).getText();
-            System.out.println(id);
-            System.out.println(firstName);
-            System.out.println(lastName);
-            System.out.println(address);
-            System.out.println(allphones);
-            System.out.println(allEmails);
+
             contactCache.add(new ContactData()
                     .withId(id)
                     .withFirstName(firstName)
