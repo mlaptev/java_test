@@ -1,23 +1,29 @@
 <list>
   <contact>
-    <firstname>ntest 0</firstname>
+    <firstname>f-name 0</firstname>
     <middlename>m-name
  0</middlename>
     <lastname>l-name
  0</lastname>
+    <email>e-mail
+ 0</email>
   </contact>
   <contact>
-    <firstname>ntest 1</firstname>
+    <firstname>f-name 1</firstname>
     <middlename>m-name
  1</middlename>
     <lastname>l-name
  1</lastname>
+    <email>e-mail
+ 1</email>
   </contact>
   <contact>
-    <firstname>ntest 2</firstname>
+    <firstname>f-name 2</firstname>
     <middlename>m-name
  2</middlename>
     <lastname>l-name
  2</lastname>
+    <email>e-mail
+ 2</email>
   </contact>
 </list>
