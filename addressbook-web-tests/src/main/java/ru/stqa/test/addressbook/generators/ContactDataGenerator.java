@@ -64,7 +64,19 @@ public class ContactDataGenerator {
             System.out.println(new File(".").getAbsolutePath());
             try (Writer writer = new FileWriter(file)) {
                 for (ContactData contact : contacts) {
-                    writer.write(String.format("%s;%s;%s\n", contact.getFirstName(), contact.getMiddleName(), contact.getLastName()));
+                    writer.write(String.format("%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s\n",
+                            contact.getTitle(),
+                            contact.getFirstName(),
+                            contact.getMiddleName(),
+                            contact.getLastName(),
+                            contact.getNickName(),
+                            contact.getHomePhone(),
+                            contact.getMobilePhone(),
+                            contact.getWorkPhone(),
+                            contact.getAddress(),
+                            contact.getEmail1(),
+                            contact.getEmail2(),
+                            contact.getEmail3()));
                 }
             }
         }
@@ -93,10 +105,18 @@ public class ContactDataGenerator {
             List<ContactData> contacts = new ArrayList<ContactData>();
             for (int i = 0; i < count; i++) {
                 contacts.add(new ContactData()
-                        .withFirstName(String.format("f-name %s", i))
-                        .withMiddleName(String.format("m-name\n %s", i))
-                        .withLastName(String.format("l-name\n %s", i))
-                        .withEmail(String.format("e-mail\n %s", i)));
+                        .withTitle("test" + i)
+                        .withFirstName("name" + i)
+                        .withMiddleName("middlename" + i)
+                        .withLastName("surname" + i)
+                        .withNickName("nick" + i)
+                        .withHomePhone("7895412" + i)
+                        .withMobilePhone("+78955424" + i)
+                        .withWorkPhone("4561" + i)
+                        .withAddress("address" + i)
+                        .withEmail1("email1" + i + "@gmail.com")
+                        .withEmail2("email2" + i + "@gmail.com")
+                        .withEmail3("email3" + i + "@gmail.com"));
             }
             return contacts;
         }

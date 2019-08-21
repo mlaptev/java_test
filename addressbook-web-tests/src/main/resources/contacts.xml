@@ -1,29 +1,44 @@
 <list>
   <contact>
-    <firstname>f-name 0</firstname>
-    <middlename>m-name
- 0</middlename>
-    <lastname>l-name
- 0</lastname>
-    <email>e-mail
- 0</email>
+    <firstname>name0</firstname>
+    <middlename>middlename0</middlename>
+    <lastname>surname0</lastname>
+    <nickname>nick0</nickname>
+    <title>test0</title>
+    <address>address0</address>
+    <mobilephone>+789554240</mobilephone>
+    <homephone>78954120</homephone>
+    <workphone>45610</workphone>
+    <email1>email10@gmail.com</email1>
+    <email2>email20@gmail.com</email2>
+    <email3>email30@gmail.com</email3>
   </contact>
   <contact>
-    <firstname>f-name 1</firstname>
-    <middlename>m-name
- 1</middlename>
-    <lastname>l-name
- 1</lastname>
-    <email>e-mail
- 1</email>
+    <firstname>name1</firstname>
+    <middlename>middlename1</middlename>
+    <lastname>surname1</lastname>
+    <nickname>nick1</nickname>
+    <title>test1</title>
+    <address>address1</address>
+    <mobilephone>+789554241</mobilephone>
+    <homephone>78954121</homephone>
+    <workphone>45611</workphone>
+    <email1>email11@gmail.com</email1>
+    <email2>email21@gmail.com</email2>
+    <email3>email31@gmail.com</email3>
   </contact>
   <contact>
-    <firstname>f-name 2</firstname>
-    <middlename>m-name
- 2</middlename>
-    <lastname>l-name
- 2</lastname>
-    <email>e-mail
- 2</email>
+    <firstname>name2</firstname>
+    <middlename>middlename2</middlename>
+    <lastname>surname2</lastname>
+    <nickname>nick2</nickname>
+    <title>test2</title>
+    <address>address2</address>
+    <mobilephone>+789554242</mobilephone>
+    <homephone>78954122</homephone>
+    <workphone>45612</workphone>
+    <email1>email12@gmail.com</email1>
+    <email2>email22@gmail.com</email2>
+    <email3>email32@gmail.com</email3>
   </contact>
 </list>

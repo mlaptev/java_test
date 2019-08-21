@@ -90,6 +90,10 @@ public class ContactHelper  extends HelperBase {
         assertTrue(closeAlertAndGetItsText().matches("^Delete 1 addresses[\\s\\S]$"));
     }
 
+    private void editContactById(int id) {
+        click(By.cssSelector("a[href='edit.php?id=" + id + "']"));
+    }
+
     public void selectContact(int index) {
         wd.findElements(By.name("selected[]")).get(index).click();
     }
@@ -212,9 +216,9 @@ public class ContactHelper  extends HelperBase {
 
 
     public ContactData infoFromEditForm(ContactData contact) {
-        initContactModificationById(contact.getId());
-        String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
-        String lasttname = wd.findElement(By.name("lasttname")).getAttribute("value");
+        editContactById(contact.getId());
+        String firstName = wd.findElement(By.name("firstname")).getAttribute("value");
+        String lastName = wd.findElement(By.name("lasttname")).getAttribute("value");
         String home = wd.findElement(By.name("home")).getAttribute("value");
         String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
         String work = wd.findElement(By.name("work")).getAttribute("value");
@@ -226,8 +230,8 @@ public class ContactHelper  extends HelperBase {
         wd.navigate().back();
         return new ContactData()
                 .withId(contact.getId())
-                .withFirstName(firstname)
-                .withLastName(lasttname)
+                .withFirstName(firstName)
+                .withLastName(lastName)
                 .withHomePhone(home)
                 .withMobilePhone(mobile)
                 .withWorkPhone(work)
