@@ -20,7 +20,7 @@ public class ContactPhoneTests extends TestBase {
 
         assertThat(contact.getHomePhone(), equalTo(MergePhones(contactInfoFromEditForm)));
 
-     //  assertThat(contact.getHomePhone(), equalTo(cleaned(contactInfoFromEditForm.getHomePhone())));
+   //  assertThat(contact.getHomePhone(), equalTo(cleaned(contactInfoFromEditForm.getHomePhone())));
     //   assertThat(contact.getMobilePhone(), equalTo(cleaned(contactInfoFromEditForm.getMobilePhone())));
     //   assertThat(contact.getWorkPhone(), equalTo(cleaned(contactInfoFromEditForm.getWorkPhone())));
 

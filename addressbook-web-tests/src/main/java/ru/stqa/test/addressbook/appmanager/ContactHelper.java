@@ -218,7 +218,7 @@ public class ContactHelper  extends HelperBase {
     public ContactData infoFromEditForm(ContactData contact) {
         editContactById(contact.getId());
         String firstName = wd.findElement(By.name("firstname")).getAttribute("value");
-        String lastName = wd.findElement(By.name("lasttname")).getAttribute("value");
+        String lastName = wd.findElement(By.name("lastname")).getAttribute("value");
         String home = wd.findElement(By.name("home")).getAttribute("value");
         String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
         String work = wd.findElement(By.name("work")).getAttribute("value");
