@@ -28,7 +28,7 @@ public class ContactEmailTests extends TestBase{
                     .withHomePhone("65434")
                     .withMobilePhone("+798545375242")
                     .withWorkPhone("7984344")
-                    .withEmail("asd@asdf.qwe")
+                    .withEmail1("asd@asdf.qwe")
                     .withEmail2("twerhh@ksdfg.vikd")
                     .withEmail3("fasdkfjlkj@sdggh.awed"));
         }
@@ -40,8 +40,8 @@ public class ContactEmailTests extends TestBase{
         ContactData contact = app.contact().all().iterator().next();
         ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
 
-        assertThat(contact.getEmail(), equalTo(contactInfoFromEditForm.getEmail()));
-//        assertThat(contact.getEmail2(), equalTo(contactInfoFromEditForm.getEmail2()));
-//        assertThat(contact.getEmail3(), equalTo(contactInfoFromEditForm.getEmail3()));
+        assertThat(contact.getEmail1(), equalTo(contactInfoFromEditForm.getEmail1()));
+        assertThat(contact.getEmail2(), equalTo(contactInfoFromEditForm.getEmail2()));
+        assertThat(contact.getEmail3(), equalTo(contactInfoFromEditForm.getEmail3()));
     }
 }

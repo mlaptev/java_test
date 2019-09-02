@@ -33,7 +33,7 @@ public class ContactHelper  extends HelperBase {
         type(By.name("mobile"), contactData.getMobilePhone());
         type(By.name("work"), contactData.getWorkPhone());
 //      type(By.name("fax"), contactData.getFaxphone());
-        type(By.name("email"), contactData.getEmail1());
+        type(By.name("email"), contactData.getEmail());
         type(By.name("email2"), contactData.getEmail2());
         type(By.name("email3"), contactData.getEmail3());
         attach(By.name("photo"), contactData.getPhoto());
@@ -200,16 +200,22 @@ public class ContactHelper  extends HelperBase {
             String lastName = cells.get(1).getText();
             String firstName = cells.get(2).getText();
             String address = cells.get(3).getText();
-            String allEmails = cells.get(4).getText();
-            String allphones = cells.get(5).getText();
+  //          String allEmails = cells.get(4).getText();
+ //           String email = cells.get(4).getText();
+            String [] emails = cells.get(4).getText().split(("\n"));
+            String [] phones = cells.get(5).getText().split(("\n"));
 
             contactCache.add(new ContactData()
                     .withId(id)
                     .withFirstName(firstName)
                     .withLastName(lastName)
+                    .withHomePhone(phones[0])
+                    .withMobilePhone(phones[1])
+                    .withWorkPhone(phones[2])
                     .withAddress(address)
-                    .withAllPhones(allphones)
-                    .withAllEmails(allEmails));
+                    .withEmail1(emails[0])
+                    .withEmail2(emails[1])
+                    .withEmail3(emails[2]));
         }
         return contactCache;
     }
@@ -223,7 +229,7 @@ public class ContactHelper  extends HelperBase {
         String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
         String work = wd.findElement(By.name("work")).getAttribute("value");
         String address = wd.findElement(By.name("address")).getAttribute("value");
-        String email1 = wd.findElement(By.name("email")).getAttribute("value");
+        String email = wd.findElement(By.name("email")).getAttribute("value");
         String email2 = wd.findElement(By.name("email2")).getAttribute("value");
         String email3 = wd.findElement(By.name("email3")).getAttribute("value");
 
@@ -236,7 +242,7 @@ public class ContactHelper  extends HelperBase {
                 .withMobilePhone(mobile)
                 .withWorkPhone(work)
                 .withAddress(address)
-                .withEmail1(email1)
+                .withEmail(email)
                 .withEmail2(email2)
                 .withEmail3(email3);
 

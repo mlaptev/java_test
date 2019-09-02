@@ -203,14 +203,14 @@ public class ContactData {
                 Objects.equals(homephone, that.homephone) &&
                 Objects.equals(mobilephone, that.mobilephone) &&
                 Objects.equals(workphone, that.workphone) &&
-                Objects.equals(email1, that.email1) &&
+                Objects.equals(email, that.email) &&
                 Objects.equals(email2, that.email2) &&
                 Objects.equals(email3, that.email3);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstname, middlename, lastname, nickname, title, company, address, homephone, mobilephone, workphone, email1, email2, email3);
+        return Objects.hash(id, firstname, middlename, lastname, nickname, title, company, address, homephone, mobilephone, workphone, email, email2, email3);
     }
 
     @Override
@@ -226,7 +226,7 @@ public class ContactData {
                 ", home='" + homephone + '\'' +
                 ", mobile='" + mobilephone + '\'' +
                 ", work='" + workphone + '\'' +
-                ", email1='" + email1 + '\'' +
+                ", email='" + email + '\'' +
                 ", email2='" + email2 + '\'' +
                 ", email3='" + email3 + '\'' +
                 ", photo='" + photo + '\'' +

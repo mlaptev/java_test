@@ -4,7 +4,6 @@ import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
 import ru.stqa.test.addressbook.model.ContactData;
 import ru.stqa.test.addressbook.model.Contacts;
 
@@ -23,7 +22,7 @@ public class ContactCreationTests extends TestBase{
 
 
     @DataProvider
-    public Iterator<Object[]> validContactsFromXml() throws IOException {
+      public Iterator<Object[]> validContactsFromXml() throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/main/resources/contacts.xml")))) {
             String xml = "";
             String line = reader.readLine();
@@ -54,7 +53,7 @@ public class ContactCreationTests extends TestBase{
 
 
 
-    @Test(dataProvider = "validContactsFromJson")
+    @org.testng.annotations.Test(dataProvider = "validContactsFromJson")
     public void testContactCreation(ContactData contact) {
          app.goTo().contactPage();
 
