@@ -213,7 +213,7 @@ public class ContactHelper  extends HelperBase {
                     .withMobilePhone(phones[1])
                     .withWorkPhone(phones[2])
                     .withAddress(address)
-                    .withEmail1(emails[0])
+                    .withEmail(emails[0])
                     .withEmail2(emails[1])
                     .withEmail3(emails[2]));
         }

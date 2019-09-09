@@ -10,7 +10,7 @@
     "mobilephone": "+789554240",
     "homephone": "78954120",
     "workphone": "45610",
-    "email1": "email10@gmail.com",
+    "email": "email10@gmail.com",
     "email2": "email20@gmail.com",
     "email3": "email30@gmail.com"
   },
@@ -25,7 +25,7 @@
     "mobilephone": "+789554241",
     "homephone": "78954121",
     "workphone": "45611",
-    "email1": "email11@gmail.com",
+    "email": "email11@gmail.com",
     "email2": "email21@gmail.com",
     "email3": "email31@gmail.com"
   },
@@ -40,7 +40,7 @@
     "mobilephone": "+789554242",
     "homephone": "78954122",
     "workphone": "45612",
-    "email1": "email12@gmail.com",
+    "email": "email12@gmail.com",
     "email2": "email22@gmail.com",
     "email3": "email32@gmail.com"
   }
