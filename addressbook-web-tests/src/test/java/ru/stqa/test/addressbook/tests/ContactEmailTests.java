@@ -29,8 +29,8 @@ public class ContactEmailTests extends TestBase{
                     .withMobilePhone("+798545375242")
                     .withWorkPhone("7984344")
                     .withEmail1("asd@asdf.qwe")
-                    .withEmail2("twerhh@ksdfg.vikd")
-                    .withEmail3("fasdkfjlkj@sdggh.awed"));
+                    .withEmail2("twerhh@ksdfg.rr")
+                    .withEmail3("fasdkfjlkj@sdggh.qq"));
         }
     }
 

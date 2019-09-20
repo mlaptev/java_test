@@ -25,7 +25,7 @@ public class GroupCreationTests extends TestBase {
 
     @DataProvider
     public Iterator<Object[]> validGroupsFromXml() throws IOException {
-        try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/main/resources/groups.xml")))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.xml")))) {
             String xml = "";
             String line = reader.readLine();
             while (line != null) {
@@ -39,7 +39,7 @@ public class GroupCreationTests extends TestBase {
     }
     @DataProvider
     public Iterator<Object[]> validGroupsFromJson() throws IOException {
-        try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/main/resources/groups.json")))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.json")))) {
             String json = "";
             String line = reader.readLine();
             while (line != null) {
@@ -68,6 +68,7 @@ public class GroupCreationTests extends TestBase {
           Groups before = app.group().all();
           app.group().create(group);
           assertThat(app.group().count(), equalTo(before.size() + 1));
+
           Groups after = app.group().all();
           assertThat(after, equalTo(
                   before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
