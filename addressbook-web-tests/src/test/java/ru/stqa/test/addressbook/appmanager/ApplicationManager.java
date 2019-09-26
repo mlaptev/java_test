@@ -36,7 +36,7 @@ public class ApplicationManager {
         properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
 
 
-        dbHelper = new DbHelper();
+       dbHelper = new DbHelper();
 
         if (browser.equals(BrowserType.FIREFOX)) {
         wd = new FirefoxDriver();

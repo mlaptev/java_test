@@ -35,7 +35,7 @@ public class ContactData {
     @Column(name = "title")
     private  String title;
 
-    @Transient
+    @Column(name = "company")
     private  String company;
 
     @Column(name = "address")
@@ -57,16 +57,16 @@ public class ContactData {
     @Transient
     private  String allPhones;
 
-    @Transient
+    @Column(name = "email")
+    @Type(type = "text")
     private  String email;
 
-    @Transient
-    private  String email1;
-
-    @Transient
+    @Column(name = "email2")
+    @Type(type = "text")
     private  String email2;
 
-    @Transient
+    @Column(name = "email3")
+    @Type(type = "text")
     private  String email3;
 
     @Transient
@@ -77,9 +77,12 @@ public class ContactData {
     private String photo;
 
 
- //   public File getPhoto() {
-  //      return new File(photo);
- //   }
+    public File getPhoto() {
+        if(photo != null) {
+            return new File(photo);
+        }
+        return null;
+    }
 
 
     public ContactData withPhoto(File photo) {
@@ -198,14 +201,6 @@ public class ContactData {
 
     public ContactData withEmail(String email) {
         this.email = email;
-        return this;
-    }
-
-    public String getEmail1() {
-       return email1;
-    }
-    public ContactData withEmail1(String email1) {
-        this.email1 = email1;
         return this;
     }
 

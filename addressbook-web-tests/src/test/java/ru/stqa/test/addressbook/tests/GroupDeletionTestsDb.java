@@ -10,7 +10,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 
-public class GroupDeletionTests extends TestBase {
+public class GroupDeletionTestsDb extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
@@ -22,10 +22,10 @@ public class GroupDeletionTests extends TestBase {
 
 
   @Test
-  public void testDeleteGroup() {
+  public void testDeleteGroupDb() {
     Groups before = app.group().all();
     GroupData deleteGroup = before.iterator().next();
- //   app.goTo().groupPage();
+    app.goTo().groupPage();
     app.group().delete(deleteGroup);
     assertThat(app.group().count(), equalTo(before.size() - 1));
     Groups after = app.group().all();

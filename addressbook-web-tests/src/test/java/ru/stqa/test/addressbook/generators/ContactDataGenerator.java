@@ -74,7 +74,7 @@ public class ContactDataGenerator {
                             contact.getMobilePhone(),
                             contact.getWorkPhone(),
                             contact.getAddress(),
-                            contact.getEmail1(),
+                            contact.getEmail(),
                             contact.getEmail2(),
                             contact.getEmail3()));
                 }
@@ -114,7 +114,7 @@ public class ContactDataGenerator {
                         .withMobilePhone("+78955424" + i)
                         .withWorkPhone("4561" + i)
                         .withAddress("address" + i)
-                        .withEmail1("email1" + i + "@gmail.com")
+                        .withEmail("email1" + i + "@gmail.com")
                         .withEmail2("email2" + i + "@gmail.com")
                         .withEmail3("email3" + i + "@gmail.com"));
             }

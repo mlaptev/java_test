@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-public class GroupCreationTests extends TestBase {
+public class GroupCreationTestsDb extends TestBase {
 
 
     @DataProvider
@@ -37,6 +37,7 @@ public class GroupCreationTests extends TestBase {
             return groups.stream().map((g) -> new Object[]{g}).collect(Collectors.toList()).iterator();
         }
     }
+
     @DataProvider
     public Iterator<Object[]> validGroupsFromJson() throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.json")))) {
@@ -56,40 +57,22 @@ public class GroupCreationTests extends TestBase {
     }
 
 
-  @Test (dataProvider = "validGroupsFromJson")
-  public void testGroupCreation(GroupData group) {
-
-          app.goTo().groupPage();
-          Groups before = app.group().all();
-          app.group().create(group);
-          assertThat(app.group().count(), equalTo(before.size() + 1));
-
-          Groups after = app.group().all();
-          assertThat(after, equalTo(
-                  before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
+    @Test(dataProvider = "validGroupsFromJson")
+    public void testGroupCreation(GroupData group) {
+//      String[] names = new String[]{"test1'", "test2", "test3"};
+        //   for (String name : names) {
 
 
-  }
- //   @Test (testName = false)
- //   public void testBadGroupCreation() {
- //       app.goTo().groupPage();
- //       Groups before = app.group().all();
- //       GroupData group = new GroupData().withName("test'");
- //       app.group().create(group);
- //       assertThat(app.group().count(), equalTo(before.size()));
- //       Groups after = app.group().all();
- //       assertThat(after, equalTo(before));
-//
- //   }
+        //         GroupData group = new GroupData().withName(name).withHeader(header).withFooter(footer);
+        app.goTo().groupPage();
+        Groups before = app.group().all();
+        app.group().create(group);
+        assertThat(app.group().count(), equalTo(before.size() + 1));
+
+        Groups after = app.group().all();
+        assertThat(after, equalTo(
+                before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
+
+
+    }
 }
-
-
-
-  //  @DataProvider
-  //  public Iterator<Object[]> validGroups() {
-  //      List<Object[]> list = new ArrayList<Object[]>();
-  //      list.add(new Object[] {new GroupData().withName("test1").withHeader("header1").withFooter("footer1")});
-  //      list.add(new Object[] {new GroupData().withName("test2").withHeader("header2").withFooter("footer3")});
-  //      list.add(new Object[] {new GroupData().withName("test3").withHeader("header2").withFooter("footer3")});
-  //      return list.iterator();
-  //  }
