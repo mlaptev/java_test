@@ -1,6 +1,8 @@
 package ru.stqa.test.addressbook.appmanager;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.stqa.test.addressbook.model.ContactData;
 import ru.stqa.test.addressbook.model.Contacts;
 
@@ -20,7 +22,7 @@ public class ContactHelper  extends HelperBase {
         click(By.name("submit"));
     }
 
-    public void fillContactForm(ContactData contactData) {
+    public void fillContactForm(ContactData contactData, boolean creation) {
 
         type(By.name("firstname"), contactData.getFirstName());
         type(By.name("middlename"), contactData.getMiddleName());
@@ -32,35 +34,21 @@ public class ContactHelper  extends HelperBase {
         type(By.name("home"), contactData.getHomePhone());
         type(By.name("mobile"), contactData.getMobilePhone());
         type(By.name("work"), contactData.getWorkPhone());
-//      type(By.name("fax"), contactData.getFaxphone());
         type(By.name("email"), contactData.getEmail());
         type(By.name("email2"), contactData.getEmail2());
         type(By.name("email3"), contactData.getEmail3());
-//        attach(By.name("photo"), contactData.getPhoto());
-//        click(By.name("homepage"));
-//        type(By.name("homepage"), contactData.getHomapage());
-//        click(By.name("bday"));
-//        new Select(wd.findElement(By.name("bday"))).selectByVisibleText(contactData.getBirthdayday());
-//        click(By.name("bday"));
-//        click(By.name("bmonth"));
-//        new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText(contactData.getBirthdaymonth());
-//        click(By.name("bmonth"));
-//        click(By.name("byear"));
-//        type(By.name("byear"), contactData.getBirthdayyear());
-//        click(By.name("aday"));
-//        new Select(wd.findElement(By.name("aday"))).selectByVisibleText(contactData.getAniday());
-//        click(By.name("aday"));
-//        click(By.name("amonth"));
-//        new Select(wd.findElement(By.name("amonth"))).selectByVisibleText(contactData.getAnimonth());
-//        click(By.name("amonth"));
-//        click(By.name("ayear"));
-//        type(By.name("ayear"), contactData.getAniyear());
-//        click(By.name("address2"));
-//        type(By.name("address2"), contactData.getSecondadresss());
-//        click(By.name("phone2"));
-//        type(By.name("phone2"), contactData.getSecondhome());
-//        click(By.name("notes"));
-//        type(By.name("notes"), contactData.getNotes());
+        attach(By.name("photo"), contactData.getPhoto());
+
+
+        if (creation) {
+            if (contactData.getGroups().size() > 0) {
+                Assert.assertTrue(contactData.getGroups().size() == 1);
+                new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroups().iterator().next().getName());
+            }
+        } else {
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
+        }
+
     }
 
     public void initContactCreation() {
@@ -74,8 +62,6 @@ public class ContactHelper  extends HelperBase {
        }
         click(By.linkText("add new"));
     }
-
-
 
     public void ContactPage() {
         if (isElementPresent(By.id("maintable"))) {
@@ -110,20 +96,20 @@ public class ContactHelper  extends HelperBase {
             return false;
         }
     }
-    public void create(ContactData contact) {
+    public void create(ContactData contact, boolean c)   {
         initContactCreation();
-        fillContactForm(contact);
+        fillContactForm(contact, c);
         submitContactCreation();
         contactCache = null;
         ContactPage();
     }
 
 
-    public void modify(ContactData contact) {
+    public void modify(ContactData contact, boolean c) {
         //ContactPage();
         selectContactById(contact.getId());
         initContactModification();
-        fillContactForm(contact);
+        fillContactForm(contact, c);
         submitContactModification();
         contactCache = null;
         ContactPage();
@@ -177,14 +163,6 @@ public class ContactHelper  extends HelperBase {
     }
 
 
-  //  public void create(ContactData contact) {
-  //      initContactCreation();
-   ///     fillContactForm(new ContactData("first name", "middle name", "last name", "nickname",
-  //              "title", "company", "addressss"), true);
-   //     submitContactCreation();
-   //         }
-
-
     private Contacts contactCache = null;
 
     public Contacts all() {
@@ -209,7 +187,7 @@ public class ContactHelper  extends HelperBase {
                     .withId(id)
                     .withFirstName(firstName)
                     .withLastName(lastName)
-                    .withHomePhone(phones[0])
+  //                  .withHomePhone(phones[0])
                     .withMobilePhone(phones[1])
                     .withWorkPhone(phones[2])
                     .withAddress(address)

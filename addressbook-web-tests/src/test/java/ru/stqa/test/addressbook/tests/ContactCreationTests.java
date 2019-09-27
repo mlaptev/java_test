@@ -73,7 +73,7 @@ public class ContactCreationTests extends TestBase{
     //            .withEmail1("email")
     //            .withEmail2("email2@mail")
     //            .withEmail3("email3@mail");
-        app.contact().create(contact);
+        app.contact().create(contact, true);
   //      File photo = new File(("src/test/resources/Test.jpg"));
        // app.contact().initContactCreation();
         //app.contact().fillContactForm(contact);

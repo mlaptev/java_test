@@ -14,23 +14,13 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class ContactEmailTests extends TestBase{
 
     @BeforeMethod
-    public void ensurePreconditions() {
+    public void ensurePrecondition() {
         app.goTo().contactPage();
-        if (app.contact().all().size() == 0) {
-            app.contact().create(new ContactData()
-                    .withFirstName("name123")
-                    .withLastName("lastname123")
-                    .withMiddleName("midname123")
-                    .withTitle("title123")
-                    .withNickName("nick123")
-                    .withCompany("company123")
-                    .withAddress("address123")
-                    .withHomePhone("65434")
-                    .withMobilePhone("+798545375242")
-                    .withWorkPhone("7984344")
-                    .withEmail("asd@asdf.qwe")
-                    .withEmail2("twerhh@ksdfg.rr")
-                    .withEmail3("fasdkfjlkj@sdggh.qq"));
+        if (app.db().contacts().size() == 0) {
+            ContactData contact = new ContactData().withFirstName("firstname").withLastName("lastname");
+            app.contact().create(contact, true);
+            //, "middle name", "last name", "nickname",
+            //   "title", "company", "addressss"));
         }
     }
 
