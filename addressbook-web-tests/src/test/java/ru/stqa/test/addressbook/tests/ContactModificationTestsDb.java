@@ -41,6 +41,7 @@ public class ContactModificationTestsDb extends TestBase {
                 .withEmail("email@mail")
                 .withEmail2("email2@mail")
                 .withEmail3("email3@mail");
+
         app.goTo().contactPage();
         app.contact().modify(contact, true);
 
